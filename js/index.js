@@ -115,4 +115,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('cuadricula').addEventListener('click', function(){
         showList(macacos, '2');
     })
+    document.getElementById('searchPoke').addEventListener('keyup', function(){
+        const valor = document.getElementById('searchPoke').value;
+        const busqueda = macacos.filter (element => {
+            return element.name.toLowerCase().indexOf(valor.toLowerCase()) > -1;
+        })
+        showList(busqueda,'1');
+    })
+    document.getElementById('limpiar').addEventListener('click',function(){
+        document.getElementById('searchPoke').value = '';
+        showList(macacos,'1');
+    })
 })
